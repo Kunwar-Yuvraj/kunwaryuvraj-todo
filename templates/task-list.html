@@ -64,7 +64,19 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">You have <b class="text-warning">{{count}}</b> incomplete task{{count|pluralize:"s"}}!</h4></div>
+                  {% if count == 0 %}
+                  <h4 class="card-title">
+                    <a href="{% url 'task-create' %}">
+                    <button class="btn btn-warning container-fluid">Create</button>
+                  </a>
+                  </h4>
+                  {% else %}
+                  <h4 class="card-title">
+                    You have <b class="text-warning" style="font-weight:900;">{{count}}</b> incomplete task{{count|pluralize:"s"}}! <a class="text-primary" href="{% url 'task-create' %}">Create More?</a>
+                  </h4>
+                  {% endif %}
+
+                </div>
                 <div class='text-primary'></div>
               <div class="card-body">
                 <div class="table-responsive">

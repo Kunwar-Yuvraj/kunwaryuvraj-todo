@@ -50,7 +50,12 @@
           <div class="col-md-8">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"><a href="{% url 'index' %}" class="text-primary">&#8592; Go Back</a></h4></div>
+                <h4 class="card-title">
+                  <a href="{% url 'index' %}" class="btn btn-warning container-fluid">&#8592;
+                 Go Back
+               </a>
+             </h4>
+           </div>
               <div class="card-body">
                 <form method="POST">
                     {% csrf_token %}
@@ -98,7 +103,7 @@
                     <div class="col-md-8"></div>
                   </div>
               <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary">Submit</button>
+                <button type="submit" class="btn btn-fill btn-primary container-fluid">Submit</button>
               </div>
               <h5>Already have an account? <a href="{% url 'login' %}">Login</a></h5>
                 </form>

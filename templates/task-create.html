@@ -63,7 +63,12 @@
             <div class="card">
               <div class="card-header">
 
-                <h4 class="card-title"><a href="{% url 'task-list' %}" class="text-primary">&#8592; Go Back</a></h4></div>
+                <h4 class="card-title">
+                  <a href="{% url 'task-list' %}" class="btn btn-warning container-fluid">&#8592;
+                 Go Back
+               </a>
+             </h4>
+           </div>
               <div class="card-body">
                 <form method="POST" id="myform">
                     {% csrf_token %}
@@ -108,32 +113,13 @@
                     <div class="col-md-8"></div>
                   </div>
               <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary">Create</button>
+                <button type="submit" class="btn btn-fill btn-primary container-fluid">Create</button>
               </div>
                 </form>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-<!--             <div class="card card-user">
-              <div class="card-body">
-                <p class="card-text">
-                  <div class="author">
-                    <div class="block block-one"></div>
-                    <div class="block block-two"></div>
-                    <div class="block block-three"></div>
-                    <div class="block block-four"></div>
-                    <a href="javascript:void(0)"><img class="avatar" src="{% static 'simpleweb/img/s2.png' %}" alt="...">
-                      <h5 class="title">Note</h5></a>
-                  </div>
-                </p>
-                <div class="card-description">UID is integer and it'll be automatically created by python.
-                  <br>Only <strong class="text-primary">"Roll Number"</strong> is integer.
-                  <br>Everything else is string.</div>
-              </div>
-              <div class="card-footer">
-                <div class="button-container"></div>
-              </div> -->
             </div>
           </div>
         </div>
