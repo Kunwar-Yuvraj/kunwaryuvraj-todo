@@ -6,7 +6,7 @@ etc = BASE_DIR / 'etc/secret_key.txt'
 with open(etc) as f:
     SECRET_KEY = f.read().strip()
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'kunwaryuvraj-todo.herokuapp.com']
 
