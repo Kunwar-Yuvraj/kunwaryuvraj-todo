@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>Kunwar Yuvraj - Todo</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link href="{% static 'simpleweb/css/nucleo-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'simpleweb/css/black-dashboard.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo"><a href="#" class="simple-text text-center">Register</a></div>
+        <ul class="nav">
+          <li class="active"><a href="{% url 'register' %}"><i class="tim-icons icon-single-02"></i><p>Register</p></a></li>
+          <li><a href="{% url 'login' %}"><i class="tim-icons icon-key-25"></i><p>Login</p></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle d-inline">
+              <button type="button" class="navbar-toggler"><span class="navbar-toggler-bar bar1"></span> <span class="navbar-toggler-bar bar2"></span> <span class="navbar-toggler-bar bar3"></span></button>
+            </div></div>
+        </div>
+      </nav>
+      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <input class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="tim-icons icon-simple-remove"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title"><a href="{% url 'index' %}" class="text-primary">&#8592; Go Back</a></h4></div>
+              <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-12 pl-md-3">
+                      <div class="form-group">
+                        <label>Username</label>
+                        {{ form.username }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Password</label>
+                        {{ form.password1 }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Confirm Password</label>
+                        {{ form.password2 }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-md-1">
+                    </div>
+                    <div class="col-md-4 px-md-1">
+                      <div class="form-group">
+                    </div>
+                    <div class="col-md-4 pl-md-1">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8"></div>
+                  </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-fill btn-primary">Submit</button>
+              </div>
+              <h5>Already have an account? <a href="{% url 'login' %}">Login</a></h5>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-user">
+              <div class="card-body">
+                <p class="card-text">
+                  <div class="author">
+                    <div class="block block-one"></div>
+                    <div class="block block-two"></div>
+                    <div class="block block-three"></div>
+                    <div class="block block-four"></div>
+                    <a href="#"><img class="avatar" src="{% static 'simpleweb/img/login.png' %}" alt="...">
+                      <h3 class="title">Get Started!</h3></a>
+                  </div>
+                </p>
+                <div class="card-description">
+    <div class="errors">
+        {% if form.errors %}
+        <h3>Fix these errors:</h3>
+            {% for field in form %}
+                {% for error in field.errors %}
+
+                         <h4 style="color: #cb4154;">* {{ error|escape }}</h4>
+
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    </div>
+              </div>
+              </div>
+              <div class="card-footer">
+                <div class="button-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+      </footer>
+    </div>
+  </div>
+  <div class="fixed-plugin">
+    <div class="dropdown show-dropdown"><a href="#" data-toggle="dropdown"><i class="fa fa-cog fa-2x"></i></a>
+      <ul class="dropdown-menu">
+        <li class="header-title">Sidebar Background</li>
+        <li class="adjustments-line">
+          <a href="javascript:void(0)" class="switch-trigger background-color">
+            <div class="badge-colors text-center"><span class="badge filter badge-primary active" data-color="primary"></span> <span class="badge filter badge-info" data-color="blue"></span> <span class="badge filter badge-success" data-color="green"></span></div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li class="adjustments-line text-center color-change"><span class="color-label">LIGHT MODE</span> <span class="badge light-badge mr-2"></span> <span class="badge dark-badge ml-2"></span> <span class="color-label">DARK MODE</span></li>
+      </ul>
+    </div>
+  </div>
+  <script src="{% static 'simpleweb/js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'simpleweb/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'simpleweb/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'simpleweb/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <script src="{% static 'simpleweb/js/plugins/chartjs.min.js' %}"></script>
+  <script src="{% static 'simpleweb/js/plugins/bootstrap-notify.js' %}"></script>
+  <script src="{% static 'simpleweb/js/black-dashboard.min.js' %}"></script>
+  <script>
+  $(document).ready(function() {
+    $().ready(function() {
+      $sidebar = $(".sidebar"), $navbar = $(".navbar"), $main_panel = $(".main-panel"), $full_page = $(".full-page"), $sidebar_responsive = $("body > .navbar-collapse"), sidebar_mini_active = !0, white_color = !1, window_width = $(window).width(), fixed_plugin_open = $(".sidebar .sidebar-wrapper .nav li.active a p").html(), $(".fixed-plugin a").click(function(a) {
+        $(this).hasClass("switch-trigger") && (a.stopPropagation ? a.stopPropagation() : window.event && (window.event.cancelBubble = !0))
+      }), $(".fixed-plugin .background-color span").click(function() {
+        $(this).siblings().removeClass("active"), $(this).addClass("active");
+        var a = $(this).data("color");
+        0 != $sidebar.length && $sidebar.attr("data", a), 0 != $main_panel.length && $main_panel.attr("data", a), 0 != $full_page.length && $full_page.attr("filter-color", a), 0 != $sidebar_responsive.length && $sidebar_responsive.attr("data", a)
+      }), $(".switch-sidebar-mini input").on("switchChange.bootstrapSwitch", function() {
+        $(this);
+        1 == sidebar_mini_active ? ($("body").removeClass("sidebar-mini"), sidebar_mini_active = !1, blackDashboard.showSidebarMessage("Sidebar mini deactivated...")) : ($("body").addClass("sidebar-mini"), sidebar_mini_active = !0, blackDashboard.showSidebarMessage("Sidebar mini activated..."));
+        var a = setInterval(function() {
+          window.dispatchEvent(new Event("resize"))
+        }, 180);
+        setTimeout(function() {
+          clearInterval(a)
+        }, 1e3)
+      }), $(".switch-change-color input").on("switchChange.bootstrapSwitch", function() {
+        $(this);
+        1 == white_color ? ($("body").addClass("change-background"), setTimeout(function() {
+          $("body").removeClass("change-background"), $("body").removeClass("white-content")
+        }, 900), white_color = !1) : ($("body").addClass("change-background"), setTimeout(function() {
+          $("body").removeClass("change-background"), $("body").addClass("white-content")
+        }, 900), white_color = !0)
+      }), $(".light-badge").click(function() {
+        $("body").addClass("white-content")
+      }), $(".dark-badge").click(function() {
+        $("body").removeClass("white-content")
+      })
+    })
+  });
+  </script>
+</body>
+
+</html>
