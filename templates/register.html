@@ -12,6 +12,7 @@
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link href="{% static 'simpleweb/css/nucleo-icons.css' %}" rel="stylesheet">
   <link href="{% static 'simpleweb/css/black-dashboard.css' %}" rel="stylesheet">
+  <link href="{% static 'simpleweb/css/apna_style.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -130,7 +131,7 @@
             {% for field in form %}
                 {% for error in field.errors %}
 
-                         <h4 style="color: #cb4154;">* {{ error|escape }}</h4>
+                         <h3 class="apna_font" style="color: #cb4154;">* {{ error|escape }}</h3>
 
                 {% endfor %}
             {% endfor %}
