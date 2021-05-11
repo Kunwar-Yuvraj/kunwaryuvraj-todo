@@ -64,17 +64,17 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                  {% if count == 0 %}
+                  {% if count_total == 0 %}
                   <h4 class="card-title">
                     <a href="{% url 'task-create' %}">
-                    <button class="btn btn-warning container-fluid">Create</button>
+                    <button class="btn btn-warning container-fluid">Create some tasks!</button>
                   </a>
                   </h4>
                   {% else %}
                   <a class="text-info" href="{% url 'task-create' %}" style="font-weight:900;">
                   <div class="card-title btn btn-warning container-fluid">
 
-                     <b class="" style="font-weight:700;">You have incomplete {{count}} task{{count|pluralize:"s"}}! Create More?</b>
+                     <b class="" style="font-weight:700;">You have {{count_incomplete}}/{{count_total}}  incomplete task{{count_incomplete|pluralize:"s"}}! Create More?</b>
 
                   </div>
                     </a>

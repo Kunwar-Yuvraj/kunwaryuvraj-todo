@@ -59,17 +59,15 @@ class TaskList(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['task_list'] = context['task_list'].filter(user=self.request.user)
-        context['count'] = context['task_list'].filter(complete=False).count()
+        context['count_incomplete'] = context['task_list'].filter(complete=False).count()
+        context['count_complete'] = context['task_list'].filter(complete=True).count()
+        context['count_total'] = context['count_incomplete'] + context['count_complete']
 
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
             context['task_list'] = context['task_list'].filter(title__startswith=search_input)
         context['search_input'] = search_input
 
-        complete_input = self.request.GET.get('complete-area')
-        if complete_input == True:
-            context['task_list'] = context['task_list'].filter(complete=False)
-        context['complete_input'] = complete_input
 
 
         return context

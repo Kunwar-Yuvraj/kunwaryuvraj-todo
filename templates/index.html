@@ -12,6 +12,7 @@
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link href="{% static 'simpleweb/css/nucleo-icons.css' %}" rel="stylesheet">
   <link href="{% static 'home/css/blk-design-system.css' %}" rel="stylesheet">
+  <link href="{% static 'simpleweb/css/apna_style.css' %}" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -42,7 +43,7 @@
       <div class="squares square7"></div>
       <div class="container">
         <div class="content-center brand">
-          <h1 class="h1-seo">
+          <h1 class="h1-seo apna_font">
             {% if not request.user.is_authenticated %}
           Your Todo App
           {% else %}
@@ -58,7 +59,7 @@
           {% else %}
           <a href="{% url 'task-list' %}" class="btn btn-danger">
           <i class="tim-icons icon-spaceship"></i>
-          View Task
+          Todo
         </a>
         <br> OR <br>
 
@@ -68,7 +69,7 @@
           {% endif %}
 
           <br>
-          <br><a href="#" target="_blank" class="text-danger"><h5 class="text-danger">Developed by Kunwar Yuvraj</h5></a></div>
+          <br><a href="https://github.com/Kunwar-Yuvraj" target="Kunwar-Yuvraj" class="text-danger"><h5 class="text-danger">Developed by Kunwar Yuvraj</h5></a></div>
       </div>
     </div>
   </div>
