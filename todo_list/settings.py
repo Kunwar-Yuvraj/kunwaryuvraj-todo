@@ -8,7 +8,7 @@ with open(etc) as f:
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'kunwaryuvraj-todo.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'kunwaryuvraj-todo.herokuapp.com', '.vercel.app']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
